@@ -7,7 +7,7 @@
   "onboarding": true,
   "onboardingConfig": {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>gsuquet/renovate-config//default"]
+    "extends": ["github>gsuquet/renovate-config:renovate-default"]
   },
   "onboardingBranch": "chore/renovate/onboarding",
   "onboardingCommitMessage": "chore(config): add renovate",
