@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default configuration for use in my GitLab repositories",
   "extends": [
-    "github>gsuquet/reonvate-config/default",
+    "github>gsuquet/renovate-config//default",
     ":assignAndReview(gabrielsuquet)"
   ]
 }
