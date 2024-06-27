@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default configuration for use in my personal repositories",
+  "extends": [
+    "config:best-practices",
+    ":maintainLockFilesWeekly",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
+    ":disableRateLimiting",
+    ":gitSignOff"
+  ],
+  "forkProcessing": "enabled",
+  "labels": ["renovate"],
+  "automergeType": "pr",
+  "commitBodyTable": true,
+  "configMigration": true,
+  "minimumReleaseAge": "0",
+  "rebaseWhen": "behind-base-branch",
+  "internalChecksFilter": "strict",
+  "packageRules": [
+    {
+      "description": "Require approval for all major version updates",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Prefix all markdown files updates with 'docs'",
+      "matchFileNames": ["**/*.md"],
+      "semanticCommitType": "docs",
+      "semanticCommitScope": null,
+      "automerge": true
+    },
+    {
+      "description": "Pin Docker images with their SHA256 digest",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchDatasources": ["docker"],
+      "pinDigests": true
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Update _VERSION variables in shell scripts",
+      "fileMatch": ["\\.sh$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
+      ]
+    }
+  ]
+}

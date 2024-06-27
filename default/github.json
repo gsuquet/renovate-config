@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default configuration for use in my GitHub repositories",
+  "extends": [
+    "github>gsuquet/reonvate-config/default",
+    ":assignAndReview(gsuquet)"
+  ],
+  "packageRules": [
+    {
+      "description": "v prefix workaround for GitHub action updates",
+      "matchDepTypes": ["action"],
+      "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Update `version:` and `_VERSION:` variables in github workflows",
+      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "matchStrings": [
+        "\\s+(?:[a-z]-)?version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
+        "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
+      ]
+    }
+  ]
+}

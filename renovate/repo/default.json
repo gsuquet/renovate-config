@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default self-hosted runner repository configuration",
+  "packageRules": [
+    {
+      "description": "Update renovate docker image weekly",
+      "extends": ["schedule:weekly"],
+      "matchDatasources": ["docker"],
+      "matchDepNames": ["renovate"]
+    }
+  ]
+}

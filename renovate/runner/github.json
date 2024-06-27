@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate GitHub self-hosted runner configuration",
+  "extends": ["github>gsuquet/renovate-config/renovate/runner"],
+  "autodiscoverFilter": ["gsuquet/*"],
+  "branchPrefix": "gsuquet/renovate/",
+  "dependencyDashboardTitle": "Dependency Dashboard (self-hosted)",
+  "onboardingConfig": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["github>gsuquet/renovate-config/default:github"]
+  },
+  "onboardingConfigFileName": ".github/renovate.json",
+  "platform": "github"
+}
