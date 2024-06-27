@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate GitLab self-hosted runner configuration",
+  "extends": ["github>gsuquet/renovate-config/renovate/runner"],
+  "onboardingConfig": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["github>gsuquet/renovate-config/default:gitlab"]
+  },
+  "onboardingConfigFileName": ".gitlab/renovate.json",
+  "platform": "gitlab"
+}
