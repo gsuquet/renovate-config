@@ -7,6 +7,11 @@
       "extends": ["schedule:weekly"],
       "matchDatasources": ["docker"],
       "matchDepNames": ["renovate"]
+    },
+    {
+      "description": "Update renovate runner weekly",
+      "extends": ["schedule:weekly"],
+      "matchDatasources": ["renovate-bot/renovate-runner"]
     }
   ]
 }
