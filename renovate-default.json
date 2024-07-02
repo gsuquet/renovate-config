@@ -38,12 +38,22 @@
       "pinDigests": true
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "description": "Update _VERSION variables in shell scripts",
+      "customType": "regex",
       "fileMatch": ["\\.sh$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
+      ]
+    },
+    {
+      "description": "Update `version:` and `_VERSION:` variables in yml and yaml files",
+      "customType": "regex",
+      "fileMatch": ["\\.ya?ml$"],
+      "matchStrings": [
+        "\\s+(?:[a-z]-)?version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
+        "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
       ]
     }
   ]
