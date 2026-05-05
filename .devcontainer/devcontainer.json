@@ -4,7 +4,7 @@
 	"name": "Renovate config",
 
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:1.0.13-bookworm@sha256:f1ac6335fc8cdd253c673a76edf77d81b5aa4bf9746bc67ecce4337d6bbaeb20",
+	"image": "mcr.microsoft.com/devcontainers/base:1.0.25-bookworm@sha256:ce2e9e611939e611b737362c045bb6d3449bb3efb84898525d724aace1737b90",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
